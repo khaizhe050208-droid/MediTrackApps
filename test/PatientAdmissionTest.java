@@ -1,3 +1,4 @@
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -108,17 +109,23 @@ public class PatientAdmissionTest {
 
     @Test
     void calculateRiskScore_temperatureBelow30_throwsIllegalArgument() {
+
         assertThrows(
                 IllegalArgumentException.class,
-                () -> admission.calculateRiskScore(20.0, 40)
+                () -> {
+                    admission.calculateRiskScore(20.0, 40);
+                }
         );
     }
 
     @Test
     void calculateRiskScore_temperatureAbove45_throwsIllegalArgument() {
+
         assertThrows(
                 IllegalArgumentException.class,
-                () -> admission.calculateRiskScore(46.0, 40)
+                () -> {
+                    admission.calculateRiskScore(46.0, 40);
+                }
         );
     }
 
@@ -142,6 +149,7 @@ public class PatientAdmissionTest {
 
     @Test
     void formatPatientReport_validInput_returnsFormattedString() {
+
         String result = admission.formatPatientReport(
                 "Maria",
                 80,
@@ -156,37 +164,47 @@ public class PatientAdmissionTest {
 
     @Test
     void formatPatientReport_nullName_throwsException() {
+
         assertThrows(
                 IllegalArgumentException.class,
-                () -> admission.formatPatientReport(
-                        null,
-                        80,
-                        "URGENT"
-                )
+                () -> {
+                    admission.formatPatientReport(
+                            null,
+                            80,
+                            "URGENT"
+                    );
+                }
         );
     }
 
     @Test
     void formatPatientReport_negativeRiskScore_throwsException() {
+
         assertThrows(
                 IllegalArgumentException.class,
-                () -> admission.formatPatientReport(
-                        "Maria",
-                        -1,
-                        "URGENT"
-                )
+                () -> {
+                    admission.formatPatientReport(
+                            "Maria",
+                            -1,
+                            "URGENT"
+                    );
+                }
         );
     }
 
     @Test
     void formatPatientReport_unknownPriority_throwsException() {
+
         assertThrows(
                 IllegalArgumentException.class,
-                () -> admission.formatPatientReport(
-                        "Maria",
-                        80,
-                        "HIGH"
-                )
+                () -> {
+                    admission.formatPatientReport(
+                            "Maria",
+                            80,
+                            "HIGH"
+                    );
+                }
         );
     }
 }
+

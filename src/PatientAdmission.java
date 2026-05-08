@@ -3,6 +3,7 @@ public class PatientAdmission {
     public int calculateRiskScore(double temperatureC, int age) {
 
         if (temperatureC < 30.0 || temperatureC > 45.0) {
+
             throw new IllegalArgumentException(
                     "Temperature out of valid range: " + temperatureC
             );
